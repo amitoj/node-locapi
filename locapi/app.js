@@ -23,19 +23,18 @@ var Schema = mongoose.Schema;
 
 var LocationEvent = new Schema ({
 	uid: { type: String, required: true },
-	eventType: { type: String, required: true },
-	longitude: { type: Number, required: true },
-	latitude: { type: Number, required: true },
-	accuracy: { type: Number, required: true },
+	service: { type: String, required: true },
+	mode: { type: String, required: true },
+	longitude: { type: Number, required: false },
+	latitude: { type: Number, required: false },
+	accuracy: { type: Number, required: false },
+    gpsTimestamp: { type: String, required: false },
     timestamp: { type: Date, 'default': Date.now }
 });
 
 //Model
 var LocationEventModel = mongoose.model('LocationEvent', LocationEvent);
 
-app.get('/', function (req, res) {
-	res.send('Location Event API is running');
-});
 app.get('/api', function (req, res) {
 	res.send('Location Event API is running');
 });
@@ -58,7 +57,8 @@ app.post('/api/locations', function (req, res) {
 	console.log(req.body);
 	location = new LocationEventModel({
 		uid: req.body.uid,
-		eventType: req.body.eventType,
+		service: req.body.service,
+		mode: req.body.mode,
 		longitude: req.body.longitude,
 		latitude: req.body.latitude,
 		accuracy: req.body.accuracy
@@ -87,3 +87,19 @@ app.get('/api/locations/:id', function (req, res) {
 // Launch server
 app.listen(5858);
 console.log('Location API Server is listening on 5858');
+
+
+
+
+//jQuery.post("/api/locations", {
+//	"uid": "amitoj",
+//	"eventType": "fg",
+//	"longitude": "51.525614",
+//	"latitude": "-0.386926",
+//	"accuracy": "100"
+//}, function (data, textStatus, jqXHR) {
+//	console.log("Post resposne:"); 
+//	console.dir(data); 
+//	console.log(textStatus); 
+//	console.dir(jqXHR);
+//});
