@@ -86,21 +86,5 @@ app.get('/api/locations/:id', function (req, res) {
 });
 
 // Launch server
-app.listen(5858);
+app.listen(8080);
 console.log('Location API Server is listening on 8080');
-
-
-
-
-//jQuery.post("/api/locations", {
-//	"uid": "amitoj",
-//	"eventType": "fg",
-//	"longitude": "51.525614",
-//	"latitude": "-0.386926",
-//	"accuracy": "100"
-//}, function (data, textStatus, jqXHR) {
-//	console.log("Post resposne:"); 
-//	console.dir(data); 
-//	console.log(textStatus); 
-//	console.dir(jqXHR);
-//});
