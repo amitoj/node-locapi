@@ -52,6 +52,7 @@ app.get('/api/locations', function (req, res) {
 
 //CREATE a Single Location
 app.post('/api/locations', function (req, res) {
+	console.log("post received");
 	var location;
 	console.log("POST: ");
 	console.log(req.body);
