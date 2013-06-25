@@ -87,7 +87,7 @@ app.get('/api/locations/:id', function (req, res) {
 
 // Launch server
 app.listen(5858);
-console.log('Location API Server is listening on 5858');
+console.log('Location API Server is listening on 8080');
 
 
 
